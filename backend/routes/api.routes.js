@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/user.controller");
-const cityController = require("../controllers/cities.controller");
-const chapterController = require("../controllers/chapter.controller");
-const askController = require("../controllers/ask.controller");
-const businessController = require("../controllers/business.controller");
+const users = require("../controllers/user.controller");
+const city = require("../controllers/cities.controller");
+const chapter = require("../controllers/chapter.controller");
+const ask = require("../controllers/ask.controller");
+const business = require("../controllers/business.controller");
 const businessPortfolios = require("../controllers/businessportfolios.controller");
 const businessexchanges = require("../controllers/businessexchanges.controller");
 const meetings = require("../controllers/meetings.controller");
@@ -19,45 +19,46 @@ const termsAndConditions = require("../controllers/termsandconditions.controller
 const auth = require('../middleware/auth.middleware');
 
 // User routes
-router.get("/users/upcoming-birthdays", userController.getUpcomingBirthdays);  
-router.get("/users/total-members", userController.getTotalMembers);
-router.post("/users/", userController.createUser);
-router.get("/users/", userController.getAllUsers);
-router.get("/users/:id", userController.getUserById);
-router.put("/users/:id", userController.updateUser);
-router.post("/users/login", userController.loginUser);
-router.delete("/users/:id", userController.deleteUser);
-router.put("/users/change-password/:id", userController.changePassword);
+router.get("/users/upcoming-birthdays", users.getUpcomingBirthdays);  
+router.get("/users/total-members", users.getTotalMembers);
+router.post("/users/", users.createUser);
+router.get("/users/", users.getAllUsers);
+router.get("/users/:id", users.getUserById);
+router.put("/users/:id", users.updateUser);
+router.post("/users/login", users.loginUser);
+router.delete("/users/:id", users.deleteUser);
+router.put("/users/change-password/:id", users.changePassword);
 
 // City routes
-router.post("/cities/", cityController.createCity); 
-router.get("/cities/", cityController.getAllCities); 
-router.get("/cities/:id", cityController.getCityById); 
-router.put("/cities/:id", cityController.updateCity); 
-router.delete("/cities/:id", cityController.deleteCity);
+router.post("/cities/", city.createCity); 
+router.get("/cities/", city.getAllCities); 
+router.get("/cities/:id", city.getCityById); 
+router.put("/cities/:id", city.updateCity); 
+router.delete("/cities/:id", city.deleteCity);
 
 // Chapter routes
-router.post("/chapters/", chapterController.createChapter);
-router.get("/chapters/", chapterController.getAllChapters);
-router.get("/chapters/:id", chapterController.getChapterById);
-router.get("/chapters/city/:city", chapterController.getChaptersByCity);
-router.put("/chapters/:id", chapterController.updateChapter);
-router.delete("/chapters/:id", chapterController.deleteChapter);
+router.post("/chapters/", chapter.createChapter);
+router.get("/chapters/", chapter.getAllChapters);
+router.get("/chapters/count", chapter.getChapterCount);
+router.get("/chapters/:id", chapter.getChapterById);
+router.get("/chapters/city/:city", chapter.getChaptersByCity);
+router.put("/chapters/:id", chapter.updateChapter);
+router.delete("/chapters/:id", chapter.deleteChapter);
 
 // Ask routes
-router.post("/asks/", askController.createAsk);
-router.get("/asks/", askController.getAllAsks);
-router.get("/asks/:id", askController.getAskById);
-router.put("/asks/:id", askController.updateAsk);
-router.delete("/asks/:id", askController.deleteAsk);
+router.post("/asks/", ask.createAsk);
+router.get("/asks/", ask.getAllAsks);
+router.get("/asks/:id", ask.getAskById);
+router.put("/asks/:id", ask.updateAsk);
+router.delete("/asks/:id", ask.deleteAsk);
 
 // Business routes
-router.post("/businesses", businessController.createBusiness);
-router.get("/businesses", businessController.getAllBusinesses);
-router.get("/businesses/:id", businessController.getBusinessById);
-router.put("/businesses/:id", businessController.updateBusiness);
-router.delete("/businesses/:id", businessController.deleteBusiness);
-router.get("/businesses/user/:userId", businessController.getBusinessesByUserId);
+router.post("/businesses", business.createBusiness);
+router.get("/businesses", business.getAllBusinesses);
+router.get("/businesses/:id", business.getBusinessById);
+router.put("/businesses/:id", business.updateBusiness);
+router.delete("/businesses/:id", business.deleteBusiness);
+router.get("/businesses/user/:userId", business.getBusinessesByUserId);
 
 // Business Portfolio routes
 router.post("/portfolios/", businessPortfolios.createPortfolio);

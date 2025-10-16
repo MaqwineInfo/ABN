@@ -92,3 +92,12 @@ exports.deleteChapter = async (req, res) => {
   }
 };
 
+// total count of chapters
+exports.getChapterCount = async (req, res) => {
+  try {
+    const count = await Chapter.countDocuments({ isDeleted: false });
+    res.json({ count });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
