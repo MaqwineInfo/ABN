@@ -215,7 +215,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             const chaptersArrays = await Promise.all(chapterPromises);
             const combinedChapters = chaptersArrays.flat(); // Flatten the array of arrays
             const uniqueChapters = Array.from(new Map(combinedChapters.map(chapter => [chapter._id, chapter])).values()); // Get unique chapters
-            
+
             setChapters(uniqueChapters);
         } catch (error) {
             console.error('Error fetching chapters:', error);
@@ -250,7 +250,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
     // Fetch upcoming birthdays only once
     useEffect(() => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0); 
+        today.setHours(0, 0, 0, 0);
         const fetchUpcomingBirthdays = async () => {
             try {
                 const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/upcoming-birthdays`);
@@ -469,9 +469,17 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             {/* Filter Data Section */}
             <div className="space-y-6">
                 <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:mt-[75px] sm:mt-[75px] mt-[75px]">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <Icons.Search />
-                        <span className="ml-2">Filter data</span>
+                    <h2 className="text-xl font-semibold text-gray-800 mb-6 flex items-center justify-between">
+                        {/* Left side: title with icon */}
+                        <div className="flex items-center">
+                            <Icons.Search className="w-5 h-5" />
+                            <span className="ml-2">Filter data</span>
+                        </div>
+
+                        {/* Right side: Roster button */}
+                        <button className="bg-orange-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-sm transition">
+                            Roster
+                        </button>
                     </h2>
 
                     {/* Filter Controls */}
@@ -659,11 +667,25 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                 </div>
                             </div>
                         </div>
+                        {/* Chapter  Card */}
+                        <div className="bg-red-50 rounded-lg p-6 border border-red-200 hover:shadow-md transition-shadow">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-sm text-gray-600 mb-1">Total Chapters</p>
+                                    <p className="text-2xl font-bold text-gray-800">18</p>
+                                </div>
+                                <div className="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center text-white">
+                                    <Icons.Money />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Upcoming Birthdays and Events Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Upcoming Birthdays, Events, and Renewal Section */}
+                {/* Change grid-cols from lg:grid-cols-2 to lg:grid-cols-3 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                     {/* Upcoming Birthdays */}
                     <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
                         <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
@@ -678,7 +700,8 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                 upcomingBirthdays.map((user) => {
                                     const initials = `${user.first_name?.[0] || ""}${user.last_name?.[0] || ""}`.toUpperCase();
                                     const fullName = `${user.first_name} ${user.last_name}`;
-                                    const dobDate = new Date(user.dob).toLocaleDateString();
+                                    // NOTE: dobDate is now formatted as a single date (e.g., 10/15/2024), not just month/day.
+                                    const dobDate = new Date(user.dob).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
                                     return (
                                         <div
@@ -694,6 +717,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                             </div>
                                             <div className="text-right">
                                                 <p className="text-sm font-medium text-blue-500">
+                                                    {/* Assuming getLabel returns "Today", "Tomorrow", or "in X days" */}
                                                     {getLabel(user.daysUntil)}
                                                 </p>
                                             </div>
@@ -720,9 +744,10 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                             <span className="ml-2">Upcoming Events & Meetings</span>
                         </h3>
                         <div className="space-y-3">
+                            {/* Ensure upcomingMeetings.length check is added if necessary */}
                             {upcomingMeetings.map((event) => (
                                 <EventCard
-                                    key={event._id}  
+                                    key={event._id}
                                     event={event}
                                     formatTimeRange={formatTimeRange}
                                     Icons={Icons}
@@ -737,9 +762,53 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                             <span>View All Events</span>
                         </button>
                     </div>
+
+                    {/* --- NEW SECTION: Renewal Membership (Themed to match others) --- */}
+                    <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            {/* Using an existing icon (Calendar) to avoid import errors */}
+                            <Icons.Calendar className="text-blue-500" />
+                            <span className="ml-2">Renewal Membership</span>
+                        </h3>
+
+                        {/* Static Membership Renewal Data */}
+                        <div className="space-y-4">
+                            {/* Card styled with existing light blue/gray theme */}
+                            <div className="flex items-start p-4 border border-blue-100 rounded-lg bg-blue-50">
+                                <div className="flex-shrink-0 mr-4">
+                                    {/* Using an existing icon (Birthday) to avoid import errors */}
+                                    <Icons.Birthday className="w-6 h-6 text-blue-600" />
+                                </div>
+                                <div className="flex-1">
+                                    <p className="font-bold text-gray-800">
+                                        Chetan Hadiya
+                                    </p>
+                                    <p className="text-sm text-gray-600 mt-1">
+                                        <span className="font-semibold text-blue-700">Renewal Date:</span> Oct 31, 2025
+                                    </p>
+                                    <p className="text-sm text-gray-600">
+                                        <span className="font-semibold">Status:</span> Pending Renewal
+                                    </p>
+                                </div>
+                                <div className="text-right flex-shrink-0">
+                                    <p className="text-lg font-bold text-blue-600">₹199.99</p>
+                                    <p className="text-xs text-blue-500">Due in 16 days</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            onClick={() => showToast('Redirecting to Membership Management...', 'success')}
+                            className="w-full mt-4 px-4 py-2 text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2"
+                        >
+                            {/* Using an existing icon (View) to avoid import errors */}
+                            <Icons.View />
+                            <span>Renew Now</span>
+                        </button>
+                    </div>
+                    {/* --- END NEW SECTION --- */}
                 </div>
 
-                
             </div>
 
             {/* Toast Notification */}
@@ -786,7 +855,7 @@ const EventCard = ({ event, formatTimeRange, Icons }) => {
     const endTime = parseISO(event.end_time);
     const now = new Date();
 
-    const getMeetingStatus = () => { 
+    const getMeetingStatus = () => {
         const meetingStartDateTime = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate(), startTime.getHours(), startTime.getMinutes(), startTime.getSeconds());
         const meetingEndDateTime = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate(), endTime.getHours(), endTime.getMinutes(), endTime.getSeconds());
 
@@ -795,12 +864,12 @@ const EventCard = ({ event, formatTimeRange, Icons }) => {
             if (isToday(eventDate)) return 'Today';
             if (isTomorrow(eventDate)) return 'Tomorrow';
             return formatDistanceToNow(eventDate, { addSuffix: true });
-        } else if (isAfter(now, meetingStartDateTime) && isBefore(now, meetingEndDateTime)) { 
+        } else if (isAfter(now, meetingStartDateTime) && isBefore(now, meetingEndDateTime)) {
             return 'Started';
-        } else if (isAfter(now, meetingEndDateTime)) { 
+        } else if (isAfter(now, meetingEndDateTime)) {
             return 'Ended';
         }
-        return ''; 
+        return '';
     };
 
 
