@@ -16,6 +16,7 @@ const ruleBook = require("../controllers/rulebook.controller.js");
 const attendances = require("../controllers/attendances.controllers");
 const privacyPolicy = require("../controllers/privacyPolicy.controller.js");
 const termsAndConditions = require("../controllers/termsandconditions.controller.js");
+const membership = require("../controllers/membership.controller"); 
 const auth = require('../middleware/auth.middleware');
 
 // User routes
@@ -134,4 +135,13 @@ router.put("/privacy-policy/", privacyPolicy.updatePrivacyPolicy);
 // Terms & Conditions routes
 router.get("/terms-and-conditions/", termsAndConditions.getTermsAndConditions);
 router.put("/terms-and-conditions/", termsAndConditions.updateTermsAndConditions);
+
+// Membership routes
+router.post("/membership/", membership.createMembership);
+router.get("/membership/", membership.getAllMemberships);
+router.get("/membership/expiring", membership.getExpiringMemberships);
+// router.get("/membership/:id", membership.getMembershipById);
+router.put("/membership/renew/:id", membership.renewMembership);
+router.delete("/membership/:id", membership.deleteMembership);
+
 module.exports = router;
