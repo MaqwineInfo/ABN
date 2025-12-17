@@ -14,7 +14,8 @@ exports.createMeeting = async (req, res) => {
   try {
     const meetingData = req.body;
 
-    const requiredFields = ['title', 'city_id', 'chapter_id', 'date', 'start_time', 'end_time', 'address', 'latitude', 'longitude', 'fees'];
+    // const requiredFields = ['title', 'city_id', 'chapter_id', 'date', 'start_time', 'end_time', 'address', 'latitude', 'longitude', 'fees'];
+    const requiredFields = ['title', 'city_id', 'chapter_id', 'date', 'start_time', 'end_time', 'address', 'latitude', 'longitude'];
 
     for (const field of requiredFields) {
       if (!meetingData[field]) {
@@ -57,8 +58,7 @@ exports.createMeeting = async (req, res) => {
     meetingData.qrCodeDataUrl = qrBase64;
 
     const newMeeting = new Meeting({
-      ...meetingData,
-      _id: uuidv4(),
+      ...meetingData, 
       date: meetingDate,
       start_time: startTime,
       end_time: endTime,

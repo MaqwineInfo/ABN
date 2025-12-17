@@ -1,13 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/images/ABN1.png';
 
-const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
+const Sidebar = ({ handleLogout }) => {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 
-  // Comprehensive Bootstrap-style Monochromatic Icons (omitted for brevity, assume they are present)
+  // State for the Report Dropdown
+  const [reportOpen, setReportOpen] = useState(false);
+
+  // Automatically open report menu if on a report page
+  useEffect(() => {
+    if (location.pathname.includes('/report')) {
+      setReportOpen(true);
+    }
+  }, [location.pathname]);
+
   const Icons = {
     Dashboard: () => (
       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
@@ -59,6 +68,11 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
         <path fillRule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
       </svg>
     ),
+    ChevronRight: () => (
+      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+        <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </svg>
+    ),
     Menu: () => (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16">
         <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
@@ -75,16 +89,40 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
         <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
       </svg>
     ),
+    // New Icons for Reports
+    Report: () => (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
+        <path d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.102.198-.307.526-.568.897-.787a7.68 7.68 0 0 1 3.798-.622c.296.006.595.032.898.088.27.05.506.136.702.261a1.2 1.2 0 0 1 .432.483.75.75 0 0 1-.226.852c-.22.203-.497.35-.805.434a9.66 9.66 0 0 1-2.925.267 6.47 6.47 0 0 1-2.365-.454z" />
+      </svg>
+    ),
+    Business: () => (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+      </svg>
+    ),
+    Attendance: () => (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+      </svg>
+    ),
   };
 
   // Menu items configuration
   const menuItems = [
     { path: '/', label: 'Dashboard', icon: Icons.Dashboard },
-    // { path: '/addMember', label: 'Add Member', icon: Icons.AddMember },
     { path: '/events', label: 'Add Event', icon: Icons.AddEvent },
     { path: '/meeting', label: 'Meetings', icon: Icons.Meetings },
     { path: '/users', label: 'Users', icon: Icons.Users },
-    // { path: '/rule-book', label: 'Rule Book', icon: Icons.RuleBook },
+    // New Report Item with subItems
+    {
+      label: 'Report',
+      icon: Icons.Report,
+      subItems: [
+        { path: '/report/business-report', label: 'Chapter Report', icon: Icons.Business },
+        { path: '/report/attendance-report', label: 'Chapter Attendance', icon: Icons.Attendance }
+      ]
+    },
     { path: '/setting', label: 'Settings', icon: Icons.Settings },
   ];
 
@@ -93,7 +131,19 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
 
   // Get current page title for mobile header
   const getPageTitle = () => {
-    const currentItem = menuItems.find(item => item.path === location.pathname);
+    // Check main items
+    let currentItem = menuItems.find(item => item.path === location.pathname);
+
+    // Check sub items if not found
+    if (!currentItem) {
+      menuItems.forEach(item => {
+        if (item.subItems) {
+          const subItem = item.subItems.find(sub => sub.path === location.pathname);
+          if (subItem) currentItem = subItem;
+        }
+      });
+    }
+
     return currentItem ? currentItem.label : 'Dashboard';
   };
 
@@ -127,7 +177,6 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
         {/* Logo */}
         <div className="p-4 border-b flex items-center justify-center h-20">
           <div className="h-[60px] flex items-center justify-center px-4">
-            {/* Reverted to original logo image */}
             <img
               src={logo}
               alt="Logo"
@@ -138,8 +187,57 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
 
         {/* Menu Items */}
         <nav className="mt-6">
-          {menuItems.map((item) => {
+          {menuItems.map((item, index) => {
             const IconComponent = item.icon;
+
+            // Check if it's a dropdown menu (Report)
+            if (item.subItems) {
+              const isParentActive = item.subItems.some(sub => isActive(sub.path));
+              return (
+                <div key={index}>
+                  <button
+                    onClick={() => setReportOpen(!reportOpen)}
+                    className={`w-full flex items-center justify-between px-6 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors ${isParentActive || reportOpen ? 'text-blue-600 bg-blue-50' : ''
+                      }`}
+                  >
+                    <div className="flex items-center">
+                      <span className="mr-3">
+                        <IconComponent />
+                      </span>
+                      {item.label}
+                    </div>
+                    <span>
+                      {reportOpen ? <Icons.ChevronDown /> : <Icons.ChevronRight />}
+                    </span>
+                  </button>
+
+                  {/* Submenu */}
+                  {reportOpen && (
+                    <div className="bg-gray-50">
+                      {item.subItems.map((subItem) => {
+                        const SubIcon = subItem.icon;
+                        return (
+                          <Link
+                            key={subItem.path}
+                            to={subItem.path}
+                            onClick={() => setSidebarOpen(false)}
+                            className={`flex items-center pl-12 pr-6 py-2 text-sm text-gray-700 hover:text-blue-600 transition-colors ${isActive(subItem.path) ? 'text-blue-600 font-medium' : ''
+                              }`}
+                          >
+                            <span className="mr-3">
+                              <SubIcon />
+                            </span>
+                            {subItem.label}
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            // Regular Link items
             return (
               <Link
                 key={item.path}
@@ -171,7 +269,7 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
             <Icons.Menu />
           </button>
 
-          {/* Page title for mobile and desktop (now consistent) */}
+          {/* Page title for mobile and desktop */}
           <h1 className="text-2xl font-semibold text-gray-800 lg:text-xl">
             {getPageTitle()}
           </h1>
@@ -191,16 +289,17 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
             </button>
 
             {/* Dropdown menu */}
+
             {showProfileDropdown && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200">
-                <Link
+                {/* <Link
                   to="/profile"
                   onClick={() => setShowProfileDropdown(false)}
                   className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors"
                 >
                   <span className="mr-3"><Icons.Profile /></span>
                   Profile
-                </Link>
+                </Link> */}
                 <Link
                   to="/change-password"
                   onClick={() => setShowProfileDropdown(false)}
@@ -213,7 +312,7 @@ const Sidebar = ({ handleLogout }) => { // Receive handleLogout as a prop
                   onClick={() => {
                     setShowProfileDropdown(false);
                     showConfirmation('Logout', 'Are you sure you want to logout?', () => {
-                      handleLogout(); // Call the handleLogout function passed from App.js
+                      handleLogout();
                       showToast('Logged out successfully', 'success');
                     });
                   }}
