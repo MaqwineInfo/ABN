@@ -92,3 +92,23 @@ exports.deleteChapter = async (req, res) => {
   }
 };
 
+// total count of chapters
+exports.getChapterCount = async (req, res) => {
+    try {
+        const { cityId } = req.query;
+        const filter = { isDeleted: false };
+
+        if (cityId) {
+            const cityIds = cityId.split(',').map(id => id.trim()).filter(Boolean);
+            if (cityIds.length > 0) {
+                filter.city_id = { $in: cityIds };
+            }
+        }
+
+        const totalChapters = await Chapter.countDocuments(filter);
+        res.json({ totalChapters });
+    } catch (error) {
+        console.error("Error in getChapterCount:", error);
+        res.status(500).json({ error: error.message });
+    }
+};

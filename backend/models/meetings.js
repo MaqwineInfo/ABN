@@ -43,6 +43,10 @@ const meetingsSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    // fees: {
+    //     type: Number,
+    //     default: 0
+    // }, 
     latitude: {
         type: Number,
         required: true

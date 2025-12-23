@@ -143,7 +143,7 @@ const App = () => {
         View: () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" /><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" /></svg>,
         AddMember: () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" /><path fillRule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" /></svg>,
         Users: () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002A.274.274 0 0 1 15 13H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" /></svg>,
-        Settings: () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" /></svg>,
+        Settings: () => <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 16 16"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0 2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" /></svg>,
         Meetings: () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z" /><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" /></svg>
     };
 
@@ -184,6 +184,8 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
     const [totalMembers, setTotalMembers] = useState(0);
     const [totalReferences, setTotalReferences] = useState(0);
     const [totalMeetings, setTotalMeetings] = useState(0);
+    const [totalChapters, setTotalChapters] = useState(0); // <-- NEW STATE FOR CHAPTERS
+    const [renewalMemberships, setRenewalMemberships] = useState([]);
 
 
     // Memoized fetchChapters function
@@ -215,7 +217,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             const chaptersArrays = await Promise.all(chapterPromises);
             const combinedChapters = chaptersArrays.flat(); // Flatten the array of arrays
             const uniqueChapters = Array.from(new Map(combinedChapters.map(chapter => [chapter._id, chapter])).values()); // Get unique chapters
-            
+
             setChapters(uniqueChapters);
         } catch (error) {
             console.error('Error fetching chapters:', error);
@@ -250,7 +252,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
     // Fetch upcoming birthdays only once
     useEffect(() => {
         const today = new Date();
-        today.setHours(0, 0, 0, 0); 
+        today.setHours(0, 0, 0, 0);
         const fetchUpcomingBirthdays = async () => {
             try {
                 const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/upcoming-birthdays`);
@@ -313,12 +315,37 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                 const resMeetings = await fetch(`${process.env.REACT_APP_API_BASE_URL}/personal-meetings/total-meetings`);
                 const dataMeetings = await resMeetings.json();
                 setTotalMeetings(dataMeetings.totalPersonalMeetings || 0);
+
+                // <-- NEW: Chapters Count
+                const resChapters = await fetch(`${process.env.REACT_APP_API_BASE_URL}/chapters/count`);
+                const dataChapters = await resChapters.json();
+                setTotalChapters(dataChapters.totalChapters || 0);
+
             } catch (err) {
                 console.error("Error fetching initial dashboard data:", err);
                 // No showToast here, as this is for initial load
             }
         };
+
+        const fetchRenewalMemberships = async () => {
+            try {
+                const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/membership/expiring`);
+                if (res.ok) { // Check if response is successful
+                    const result = await res.json();
+                    if (result.success) {
+                        setRenewalMemberships(result.data);
+                    }
+                } else {
+                    console.error('Failed to fetch renewal memberships, status:', res.status);
+                    setRenewalMemberships([]); // Set to empty on error
+                }
+            } catch (err) {
+                console.error("Error fetching renewal memberships:", err);
+            }
+        };
+
         fetchInitialData();
+        fetchRenewalMemberships();
     }, []); // Empty dependency array ensures it runs only once on mount
 
 
@@ -366,10 +393,11 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
     // Function to handle search
     const handleSearch = async () => {
         // MODIFICATION: Check if a city is selected before searching
-        if (filterData.city.length === 0) {
-            showToast("Please select at least one city to apply filters.", "error");
-            return; // Stop the function if no city is selected
+        if (filterData.city.length === 0 && filterData.chapter.length === 0 && !filterData.dateRange) {
+            showToast("Please select at least one filter to apply.", "error");
+            return; // Stop the function if no filters are applied
         }
+
 
         const selectedCityIds = filterData.city
             .map(cityName => cities.find(city => city.name === cityName)?._id)
@@ -387,23 +415,28 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             queryParams.append("endDate", endDate);
         }
 
-        // Only append cityId and chapterId if selections are made
         if (selectedCityIds.length > 0) {
-            queryParams.append("cityId", selectedCityIds.join(',')); // Join IDs with comma
+            queryParams.append("cityId", selectedCityIds.join(','));
         }
         if (selectedChapterIds.length > 0) {
-            queryParams.append("chapterId", selectedChapterIds.join(',')); // Join IDs with comma
+            queryParams.append("chapterId", selectedChapterIds.join(','));
         }
 
         const qs = queryParams.toString();
         console.log("Query Parameters being sent:", qs);
 
-        // Determine if any city or chapter filter is applied
+        // <-- NEW: Chapter query params (only needs cityId)
+        const chapterQueryParams = new URLSearchParams();
+        if (selectedCityIds.length > 0) {
+            chapterQueryParams.append("cityId", selectedCityIds.join(','));
+        }
+        const chapterQs = chapterQueryParams.toString();
+
+
         const hasCityOrChapterFilter = selectedCityIds.length > 0 || selectedChapterIds.length > 0;
 
         try {
             // Business Revenue
-            // If no city or chapter is selected, and only date range is applied, set revenue to 0
             if (!hasCityOrChapterFilter && startDate && endDate) {
                 setTotalRevenue(0);
             } else {
@@ -413,7 +446,6 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             }
 
             // Members
-            // If no city or chapter is selected, and only date range is applied, set members to 0
             if (!hasCityOrChapterFilter && startDate && endDate) {
                 setTotalMembers(0);
             } else {
@@ -423,7 +455,6 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             }
 
             // References
-            // If no city or chapter is selected, and only date range is applied, set references to 0
             if (!hasCityOrChapterFilter && startDate && endDate) {
                 setTotalReferences(0);
             } else {
@@ -433,7 +464,6 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             }
 
             // Meetings
-            // If no city or chapter is selected, and only date range is applied, set meetings to 0
             if (!hasCityOrChapterFilter && startDate && endDate) {
                 setTotalMeetings(0);
             } else {
@@ -441,6 +471,12 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                 const dataMeetings = await resMeetings.json();
                 setTotalMeetings(dataMeetings.totalPersonalMeetings || 0);
             }
+
+            // <-- NEW: Fetch filtered chapters
+            const resChapters = await fetch(`${process.env.REACT_APP_API_BASE_URL}/chapters/count?${chapterQs}`);
+            const dataChapters = await resChapters.json();
+            setTotalChapters(dataChapters.totalChapters || 0);
+
 
             showToast("Data filtered successfully", "success");
         } catch (err) {
@@ -451,6 +487,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             setTotalMembers(0);
             setTotalReferences(0);
             setTotalMeetings(0);
+            setTotalChapters(0); // <-- NEW
         }
     };
 
@@ -469,9 +506,17 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
             {/* Filter Data Section */}
             <div className="space-y-6">
                 <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200 lg:mt-[75px] sm:mt-[75px] mt-[75px]">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-6 flex items-center">
-                        <Icons.Search />
-                        <span className="ml-2">Filter data</span>
+                    <h2 className="text-xl font-semibold text-gray-800 mb-6 flex items-center justify-between">
+                        {/* Left side: title with icon */}
+                        <div className="flex items-center">
+                            <Icons.Search className="w-5 h-5" />
+                            <span className="ml-2">Filter data</span>
+                        </div>
+
+                        {/* Right side: Roster button */}
+                        <button className="bg-orange-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-sm transition">
+                            Roster
+                        </button>
                     </h2>
 
                     {/* Filter Controls */}
@@ -659,16 +704,31 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                 </div>
                             </div>
                         </div>
+
+                        {/* Chapter Card - UPDATED */}
+                        <div className="bg-purple-50 rounded-lg p-6 border border-purple-200 hover:shadow-md transition-shadow">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <p className="text-sm text-gray-600 mb-1">Total Chapters</p>
+                                    <p className="text-2xl font-bold text-gray-800">{totalChapters.toLocaleString()}</p>
+                                </div>
+                                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center text-white">
+                                    <Icons.Team /> {/* Using a different icon for variety */}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* Upcoming Birthdays and Events Section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Upcoming Birthdays, Events, and Renewal Section */}
+                {/* Change grid-cols from lg:grid-cols-2 to lg:grid-cols-3 */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
                     {/* Upcoming Birthdays */}
                     <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
                         <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
                             <Icons.Birthday />
-                            <span className="ml-2">Upcoming Birthdays (Next 31 Days)</span>
+                            <span className="ml-2">Upcoming Birthdays</span>
                         </h3>
 
                         <div className="space-y-3">
@@ -678,7 +738,8 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                 upcomingBirthdays.map((user) => {
                                     const initials = `${user.first_name?.[0] || ""}${user.last_name?.[0] || ""}`.toUpperCase();
                                     const fullName = `${user.first_name} ${user.last_name}`;
-                                    const dobDate = new Date(user.dob).toLocaleDateString();
+                                    // NOTE: dobDate is now formatted as a single date (e.g., 10/15/2024), not just month/day.
+                                    const dobDate = new Date(user.dob).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 
                                     return (
                                         <div
@@ -694,6 +755,7 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                                             </div>
                                             <div className="text-right">
                                                 <p className="text-sm font-medium text-blue-500">
+                                                    {/* Assuming getLabel returns "Today", "Tomorrow", or "in X days" */}
                                                     {getLabel(user.daysUntil)}
                                                 </p>
                                             </div>
@@ -720,9 +782,10 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                             <span className="ml-2">Upcoming Events & Meetings</span>
                         </h3>
                         <div className="space-y-3">
+                            {/* Ensure upcomingMeetings.length check is added if necessary */}
                             {upcomingMeetings.map((event) => (
                                 <EventCard
-                                    key={event._id}  
+                                    key={event._id}
                                     event={event}
                                     formatTimeRange={formatTimeRange}
                                     Icons={Icons}
@@ -737,9 +800,65 @@ const Dashboard = ({ showToast, showConfirmation, Icons, toast, setToast, confir
                             <span>View All Events</span>
                         </button>
                     </div>
+
+                    {/* --- NEW SECTION: Renewal Membership (Themed to match others) --- */}
+                    <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <Icons.Calendar className="text-blue-500" />
+                            <span className="ml-2">Renewal Membership</span>
+                        </h3>
+
+                        {/* Dynamic Membership Renewal Data */}
+                        <div className="space-y-4 max-h-80 overflow-y-auto">
+                            {renewalMemberships.length > 0 ? (
+                                renewalMemberships.map((membership) => {
+                                    const renewalDate = parseISO(membership.endDate);
+                                    const daysUntil = Math.round((renewalDate - new Date()) / (1000 * 60 * 60 * 24));
+
+                                    return (
+                                        <div key={membership._id} className="flex items-start p-4 border border-blue-100 rounded-lg bg-blue-50">
+                                            <div className="flex-shrink-0 mr-4">
+                                                <Icons.Birthday className="w-6 h-6 text-blue-600" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <p className="font-bold text-gray-800">
+                                                    {membership.user?.first_name || ''} {membership.user?.last_name || ''}
+                                                </p>
+                                                <p className="text-sm text-gray-600 mt-1">
+                                                    <span className="font-semibold text-blue-700">Renewal Date:</span> {format(renewalDate, 'MMM dd, yyyy')}
+                                                </p>
+                                                {/* <p className="text-sm text-gray-600">
+                                                    <span className="font-semibold">Status:</span>
+                                                    <span className={`capitalize font-medium ${membership.paymentStatus === 'paid' ? 'text-green-600' : 'text-orange-500'}`}>
+                                                        {membership.paymentStatus}
+                                                    </span>
+                                                </p> */}
+                                            </div>
+                                            <div className="text-right flex-shrink-0">
+                                                <p className="text-lg font-bold text-blue-600">₹{membership.price.toLocaleString()}</p>
+                                                <p className="text-xs text-blue-500">
+                                                    {daysUntil <= 0 ? 'Due today' : `Due in ${daysUntil} days`}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            ) : (
+                                <p className="text-gray-500 text-center py-4">No upcoming renewals in the next 30 days.</p>
+                            )}
+                        </div>
+
+                        <button
+                            onClick={() => showToast('Redirecting to Membership Management...', 'success')}
+                            className="w-full mt-4 px-4 py-2 text-blue-500 border border-blue-500 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2"
+                        >
+                            <Icons.View />
+                            <span>Manage Memberships</span>
+                        </button>
+                    </div>
+                    {/* --- END NEW SECTION --- */}
                 </div>
 
-                
             </div>
 
             {/* Toast Notification */}
@@ -786,7 +905,7 @@ const EventCard = ({ event, formatTimeRange, Icons }) => {
     const endTime = parseISO(event.end_time);
     const now = new Date();
 
-    const getMeetingStatus = () => { 
+    const getMeetingStatus = () => {
         const meetingStartDateTime = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate(), startTime.getHours(), startTime.getMinutes(), startTime.getSeconds());
         const meetingEndDateTime = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate(), endTime.getHours(), endTime.getMinutes(), endTime.getSeconds());
 
@@ -795,12 +914,12 @@ const EventCard = ({ event, formatTimeRange, Icons }) => {
             if (isToday(eventDate)) return 'Today';
             if (isTomorrow(eventDate)) return 'Tomorrow';
             return formatDistanceToNow(eventDate, { addSuffix: true });
-        } else if (isAfter(now, meetingStartDateTime) && isBefore(now, meetingEndDateTime)) { 
+        } else if (isAfter(now, meetingStartDateTime) && isBefore(now, meetingEndDateTime)) {
             return 'Started';
-        } else if (isAfter(now, meetingEndDateTime)) { 
+        } else if (isAfter(now, meetingEndDateTime)) {
             return 'Ended';
         }
-        return ''; 
+        return '';
     };
 
 
