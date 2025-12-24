@@ -7,6 +7,8 @@ import Meeting from './pages/Meeting';
 import Setting from './pages/Setting';
 import Users from './pages/Users';
 import Event from './pages/event';
+import AttendanceReport from './pages/attendancereport';
+import ChapterReport from './pages/chapterreport';
 import ChangePassword from './pages/ChangePassword';
 import Login from './auth/Login';
 
@@ -48,6 +50,8 @@ function App() {
               <Route path="/setting" element={<Setting />} />
               <Route path="/users" element={<Users />} />
               <Route path="/change-password" element={<ChangePassword />} />
+              <Route path="/attendance-report" element={<AttendanceReport />} />
+              <Route path="/business-report" element={<ChapterReport />} />
               <Route path="*" element={<Dashboard />} />
             </Routes> 
         </>
