@@ -119,8 +119,8 @@ const Sidebar = ({ handleLogout }) => {
       label: 'Report',
       icon: Icons.Report,
       subItems: [
-        { path: '/report/business-report', label: 'Chapter Report', icon: Icons.Business },
-        { path: '/report/attendance-report', label: 'Chapter Attendance', icon: Icons.Attendance }
+        { path: '/business-report', label: 'Chapter Report', icon: Icons.Business },
+        { path: '/attendance-report', label: 'Chapter Attendance', icon: Icons.Attendance }
       ]
     },
     { path: '/setting', label: 'Settings', icon: Icons.Settings },
