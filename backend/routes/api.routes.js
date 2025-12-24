@@ -17,6 +17,8 @@ const attendances = require("../controllers/attendances.controllers");
 const privacyPolicy = require("../controllers/privacyPolicy.controller.js");
 const termsAndConditions = require("../controllers/termsandconditions.controller.js");
 const membership = require("../controllers/membership.controller"); 
+const chapterReport = require("../controllers/chapterreport.controller.js");
+const attendanceReport = require("../controllers/attendancereport.controller.js");
 const auth = require('../middleware/auth.middleware');
 
 // User routes
@@ -143,5 +145,11 @@ router.get("/membership/expiring", membership.getExpiringMemberships);
 // router.get("/membership/:id", membership.getMembershipById);
 router.put("/membership/renew/:id", membership.renewMembership);
 router.delete("/membership/:id", membership.deleteMembership);
+
+// Chapter Report routes
+router.get("/chapter-reports", chapterReport.getChapterReport);
+
+// Attendance Report routes
+router.get("/attendance-reports", attendanceReport.getAttendanceReport);
 
 module.exports = router;

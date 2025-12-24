@@ -18,8 +18,9 @@ const meeting_attendancesSchema = new mongoose.Schema(
             required: true
         },
         attendance_status: {
-            type: String,  
-            required: true,
+            type: String,
+            enum: ['attended', 'absent'],
+            required: true
         },
         created_at: {
             type: Date,
