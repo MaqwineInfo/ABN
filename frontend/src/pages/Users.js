@@ -30,8 +30,6 @@ const Users = ({ Icons }) => {
 
   const IconSet = Icons || FallbackIcons;
 
-  const API_BASE_URL = 'http://localhost:4000/api'; // Base URL for the API
-
   // State management for Users table
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
@@ -610,7 +608,7 @@ const Users = ({ Icons }) => {
         }
       }
     );
-  }, [API_BASE_URL, fetchAllData, showToast, showConfirmation]);
+  }, [ fetchAllData, showToast, showConfirmation]);
 
   // Handle deleting a user
   const handleDeleteUser = useCallback((userId) => {
@@ -652,7 +650,7 @@ const Users = ({ Icons }) => {
         }
       }
     );
-  }, [API_BASE_URL, fetchAllData, showToast, showConfirmation, users]);
+  }, [fetchAllData, showToast, showConfirmation, users]);
 
   // Handle changing password
   const handleChangePassword = (userId) => {
@@ -769,7 +767,7 @@ const Users = ({ Icons }) => {
     });
     setCurrentStep(1);
     setShowMultiStepForm(true);
-  }, [setFormData, setEditingUserId, setIsEditing, setShowMultiStepForm, API_BASE_URL]);
+  }, [setFormData, setEditingUserId, setIsEditing, setShowMultiStepForm]);
 
   // Success animation component
   const SuccessAnimation = () => (

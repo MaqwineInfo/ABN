@@ -216,7 +216,7 @@ const Meetings = () => {
     // Fetch all chapters (used for both form and filters)
     const fetchAllChapters = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/chapters');
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/chapters`);
             if (!response.ok) throw new Error('Failed to fetch chapters');
             const data = await response.json();
 
@@ -237,7 +237,7 @@ const Meetings = () => {
     // Fetch cities
     const fetchCities = useCallback(async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/cities');
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/cities`);
             if (!response.ok) throw new Error('Failed to fetch cities');
             const data = await response.json();
             setCities(data);
@@ -250,7 +250,7 @@ const Meetings = () => {
     // Fetch meetings from API and their attendance counts
     const fetchMeetings = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/meetings');
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meetings`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -260,7 +260,7 @@ const Meetings = () => {
             const meetingsWithAttendance = await Promise.all(
                 meetingsData.map(async (meeting) => {
                     try {
-                        const attendanceResponse = await fetch(`http://localhost:4000/api/meeting-attendances/${meeting._id}/total-attendances`);
+                        const attendanceResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meeting-attendances/${meeting._id}/total-attendances`);
                         if (!attendanceResponse.ok) {
                             console.warn(`Failed to fetch attendance for meeting ${meeting._id}: ${attendanceResponse.statusText}`);
                             return { ...meeting, totalAttendees: 0 };
@@ -396,7 +396,7 @@ const Meetings = () => {
 
                         let response;
                         if (editingMeeting) {
-                            response = await fetch(`http://localhost:4000/api/meetings/${editingMeeting._id}`, {
+                            response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meetings/${editingMeeting._id}`, {
                                 method: 'PUT',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -404,7 +404,7 @@ const Meetings = () => {
                                 body: JSON.stringify(payload),
                             });
                         } else {
-                            response = await fetch('http://localhost:4000/api/meetings', {
+                            response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meetings`, {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json',
@@ -443,7 +443,7 @@ const Meetings = () => {
             'Are you sure you want to delete this meeting? This action cannot be undone.',
             async () => {
                 try {
-                    const response = await fetch(`http://localhost:4000/api/meetings/${meetingId}`, {
+                    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meetings/${meetingId}`, {
                         method: 'DELETE',
                     });
 
@@ -536,7 +536,7 @@ const Meetings = () => {
         if (!selectedMeetingForExport) return;
 
         try {
-            const response = await fetch(`http://localhost:4000/api/meetings/${selectedMeetingForExport._id}/export-attendance`);
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/meetings/${selectedMeetingForExport._id}/export-attendance`);
             if (!response.ok) {
                 throw new Error('CSV Download Failed.');
             }
